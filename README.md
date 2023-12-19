@@ -6,9 +6,9 @@ Contributors:
 * Alexis Catherine Echano
 * Annel Amelia Leon
 
-# Final Project CS 109 Fall 2023
+# Final Project for CS 109 Fall 2023
 
-# Final Project CS 221 Fall 2023
+# Final Project for CS 221 Fall 2023
 
 Contributors:
 * Su Kara
