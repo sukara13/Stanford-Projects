@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+
+<!--=======================================================================-->
+
+  <head>
+    <title>Reading Log</title>
+    <script type='text/javascript' src='http://epilog.stanford.edu/javascript/epilog.js'></script>
+    <script type='text/javascript' src='http://worksheets.stanford.edu/javascript/worksheets.js'></script>
+    <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+<!--=======================================================================-->
+
+<body style='background-color:#F6F5EB' onload='initialize()'>
+
+  <!-- Create basic, centered header -->
+  <center>
+    <header>
+      <h1 style="margin-top: 1em">College Reading Log 📚</h1>
+      <p>CS 151 Final Project by Alexis Echano, Su Kara, Amelia Leon, and Priti Rangnekar</p>
+    </header>
+  </center>
+
+  <!-- Main Body for Log -->
+  <center>
+    <!-- Personal Goal Section -->
+    <div style="outline: 0.1em solid black; padding: 1em; margin: 1em; overflow: auto;">
+      <h2>Reading Goals</h2>
+
+      <!-- Genre/Language Book Counter per Quarter -->
+      <table>
+        <!-- FALL -->
+        <tr>
+          <td style="width: 100px; text-align: left; font-weight: bold">
+            FALL
+          </td>
+          <td>
+          1:
+          </td>
+          <td style="width: 560px">
+            <select id="fall_one" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          2:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_two" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          3:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_three" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          4:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_four" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          5:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_five" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          6:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_six" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          7:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_seven" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          8:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_eight" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr style="height: 15px">
+        </tr>
+
+        <!-- WINTER -->
+        <tr>
+          <td style="width: 100px; text-align: left; font-weight: bold">
+            WINTER
+          </td>
+          <td>
+          1:
+          </td>
+          <td style="width: 560px">
+            <select id="winter_one" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          2:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_two" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          3:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_three" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          4:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_four" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          5:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_five" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          6:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_six" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          7:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_seven" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          8:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_eight" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr style="height: 15px">
+        </tr>
+
+        <!-- SPRING -->
+        <tr>
+          <td style="width: 100px; text-align: left; font-weight: bold">
+            SPRING
+          </td>
+          <td>
+          1:
+          </td>
+          <td style="width: 560px">
+            <select id="spring_one" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          2:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_two" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          3:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_three" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          4:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_four" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          5:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_five" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          6:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_six" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          7:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_seven" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+          <td>
+          8:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_eight" style="width: 400px" onchange="modselector(this); updatecharts();"></select>
+          </td>
+        </tr>
+        <tr style="height: 15px">
+        </tr>
+
+      </table>
+    </div>
+
+    <!-- Reading Rules -->
+    <div class="rulessection" style="padding: 1em; margin: 1em;">
+      <h2>Rules</h2>
+
+      <!-- Split Rules -->
+      <table width='100%'>
+        <tr>
+        <td style="width: 0px">
+        </td>
+        <td>
+          <div id='atleastonebookperquarter' style='color:red'>&nbsp;&nbsp;Be sure to read every quarter!</div>
+          <div id='dontreread' style='color:green'>&nbsp;&nbsp;All of your books should be different!</div>
+          <div id='readprequelsfirst' style='color:green'>&nbsp;&nbsp;Don't read series books out of order!</div>
+          <div id='atleastonenonfictionbookthisyear' style='color:orange'>&nbsp;&nbsp;Consider reading at least one nonfiction book this year!</div>
+          <div id='atleastonefictionbookperquarter' style='color:orange'>&nbsp;&nbsp;Consider reading at least one fiction book every quarter!</div>
+          <div id='atleastthreeenglishgenresthisyear' style='color:orange'>&nbsp;&nbsp;Consider reading at least three different English genres this year!</div>
+          <div id='languageproficiency' style='color:orange'>&nbsp;&nbsp;Consider developing proficiency in a foreign language by reading in that language for 2 quarters!</div>
+        </td>
+      </tr>
+    </table>
+    </div>
+
+     <!-- Reading Statistics -->
+    <div class="rulessection" style="padding: 1em; margin: 1em;">
+      <h2>Statistics</h2>
+
+      <!-- The Statistics -->
+      <table width='100%'>
+        <tr>
+            <td valign="top" rowspan="2" style="font-size: 14px">
+              Total Number of Unique Books Read: <label id='totalnumberofbooksread' value=0>0</label><br><br>
+              Total Number of Unique Books Read in Fall: <label id='totalnumberofbooksreadfall' value=0>0</label><br><br>
+              Total Number of Unique Books Read in Winter: <label id='totalnumberofbooksreadwinter' value=0>0</label><br><br>
+              Total Number of Unique Books Read in Spring: <label id='totalnumberofbooksreadspring' value=0>0</label><br><br>
+              Total Number of Unique Books By Women Authors Read: <label id='totalnumberofbookswomenauthors' value=0>0</label><br><br>
+              Total Number of Unique Books By Men Authors Read: <label id='totalnumberofbooksmenauthors' value=0>0</label><br><br>
+              Total Number of Unique Pages Read: <label id='totalnumberofpagesread' value=0>0</label><br><br>
+              Total Number of Unique Pages Read in Fall: <label id='totalnumberofpagesreadfall' value=0>0</label><br><br>
+              Total Number of Unique Pages Read in Winter: <label id='totalnumberofpagesreadwinter' value=0>0</label><br><br>
+              Total Number of Unique Pages Read in Spring: <label id='totalnumberofpagesreadspring' value=0>0</label><br><br>
+              Average Difficulty of Unique Books Read: <label id='avgdifficulty' value=0>0</label><br><br>
+              Average Difficulty of Unique Books Read in Fall: <label id='avgdifficultyfall' value=0>0</label><br><br>
+              Average Difficulty of Unique Books Read in Winter: <label id='avgdifficultywinter' value=0>0</label><br><br>
+              Average Difficulty of Unique Books Read in Spring: <label id='avgdifficultyspring' value=0>0</label><br><br>
+            </td>
+            <td valign="top">
+                <canvas id="chartbooks" style="max-width:400px"></canvas>
+            </td>
+            <td valign="top">
+                <canvas id="chartpages" style="max-width:400px"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <canvas id="chartdifficulty" style="max-width:400px"></canvas>
+            </td>
+            <td valign="top">
+                <canvas id="chartgender" style="max-width:400px"></canvas>
+            </td>
+        </tr>
+      </table>
+    </div>
+  </center>
+
+<!--=======================================================================-->
+
+<dataset id='lambda' style='font-family:courier;display:none' rows='20' cols='20'>
+book(dracula, horror, male, 418, 1)
+book(theturnofthescrew, horror, male, 124, 1)
+book(thewomaninblack, horror, female, 208, 1)
+book(theshining, horror, male, 688, 2)
+book(houseofleaves, horror, male, 705, 2)
+book(americanpsycho, horror, male, 399, 2)
+book(it, horror, male, 1138, 3)
+book(theluminousdead, horror, female, 432, 3)
+book(theterror, horror, male, 960, 3)
+
+book(endersgame, scifi, male, 352, 1)
+book(readyplayerone, scifi, male, 386, 1)
+book(themartian, scifi, male, 384, 1)
+book(snowcrash, scifi, male, 470, 2)
+book(hyperion, scifi, male, 482, 2)
+book(thelefthand, scifi, female, 304, 2)
+book(cryptonomicon, scifi, male, 1168, 3)
+book(anathem, scifi, male, 960, 3)
+book(thebookofthenewsun, scifi, male, 912, 3)
+
+book(stardust, fantasy, male, 288, 1)
+book(thenightcircus, fantasy, female, 512, 1)
+book(uprooted, fantasy, femal, 464, 1)
+book(thenameofthewind, fantasy, male, 662, 2)
+book(sabriel, fantasy, male, 491, 2)
+book(graceling, fantasy, female, 471, 2)
+book(thewayofkings, fantasy, male, 1007, 3)
+book(thebladeitself, fantasy, male, 519, 3)
+book(thefinalempire, fantasy, male, 541, 3)
+
+book(becoming, nonfiction, female, 426, 1)
+book(theimmortallife, nonfiction, female, 381, 1)
+book(mindset, nonfiction, female, 320, 1)
+book(educated, nonfiction, female, 334, 2)
+book(thediary, nonfiction, female, 352, 2)
+book(thegene, nonfiction, male, 608, 2)
+book(theseven, nonfiction, male, 384, 3)
+book(thinking, nonfiction, male, 512, 3)
+book(incoldblood, nonfiction, male, 343, 3)
+
+book(hpone, series, female, 223, 1)
+book(hptwo, series, female, 251, 1)
+book(hpthree, series, female, 317, 2)
+book(hpfour, series, female, 636, 2)
+book(hpfive, series, female, 766, 3)
+book(hpsix, series, female, 607, 3)
+book(hpseven, series, female, 607, 3)
+book(hobbit, series, male, 310, 1)
+book(lotrone, series, male, 398, 2)
+book(lotrtwo, series, male, 447, 2)
+book(lotrthree, series, male, 416, 2)
+
+book(lepetit, french, male, 96, 1)
+book(meursault, french, male, 144, 1)
+book(chateau, french, male, 64, 1)
+book(laquete, french, male, 288, 2)
+book(lapasse, french, female, 528, 2)
+book(lesaventuriers, french, female, 416, 2)
+book(lesmiserables, french, male, 1900, 3)
+book(lahorde, french, male, 688, 3)
+book(lepee, french, male, 800, 3)
+
+book(memorias, spanish, female, 416, 1)
+book(narnia, spanish, male, 208, 1)
+book(elprincipe, spanish, male, 232, 1)
+book(pedroparamo, spanish, male, 124, 2)
+book(laslagrimas, spanish, male, 320, 2)
+book(torre, spanish, female, 304, 2)
+book(laciudad, spanish, male, 416, 3)
+book(ellaberinto, spanish, male, 928, 3)
+book(eltemor, spanish, male, 1040, 3)
+
+book(zaman, turkish, male, 320, 1)
+book(tuhaf, turkish, male, 256, 1)
+book(biryol, turkish, male, 192, 1)
+book(felsefe, turkish, male, 592, 2)
+book(sisvegece, turkish, male, 464, 2)
+book(karkokusu, turkish, male, 480, 2)
+book(istanbul, turkish, male, 896, 3)
+book(kurk, turkish, male, 176, 3)
+book(ask, turkish, female, 736, 3)
+
+quarternumberinquarter(fall_one, fall)
+quarternumberinquarter(fall_two, fall)
+quarternumberinquarter(fall_three, fall)
+quarternumberinquarter(fall_four, fall)
+quarternumberinquarter(fall_five, fall)
+quarternumberinquarter(fall_six, fall)
+quarternumberinquarter(fall_seven, fall)
+quarternumberinquarter(fall_eight, fall)
+
+quarternumberinquarter(winter_one, winter)
+quarternumberinquarter(winter_two, winter)
+quarternumberinquarter(winter_three, winter)
+quarternumberinquarter(winter_four, winter)
+quarternumberinquarter(winter_five, winter)
+quarternumberinquarter(winter_six, winter)
+quarternumberinquarter(winter_seven, winter)
+quarternumberinquarter(winter_eight, winter)
+
+quarternumberinquarter(spring_one, spring)
+quarternumberinquarter(spring_two, spring)
+quarternumberinquarter(spring_three, spring)
+quarternumberinquarter(spring_four, spring)
+quarternumberinquarter(spring_five, spring)
+quarternumberinquarter(spring_six, spring)
+quarternumberinquarter(spring_seven, spring)
+quarternumberinquarter(spring_eight, spring)
+
+sequel(hpone, hptwo)
+sequel(hptwo, hpthree)
+sequel(hpthree, hpfour)
+sequel(hpfour, hpfive)
+sequel(hpfive, hpsix)
+sequel(hpsix, hpseven)
+sequel(hobbit, lotrone)
+sequel(lotrone, lotrtwo)
+sequel(lotrtwo, lotrthree)
+
+futurequarter(fall, winter)
+futurequarter(fall, spring)
+futurequarter(winter, spring)
+
+</dataset>
+
+<!--=======================================================================-->
+
+<dataset id='testdata' type='text/hrf' style='display:none'>
+</dataset>
+
+<!--=======================================================================-->
+
+<ruleset id='library' style='font-family:courier;display:none' rows='20'>
+% MAKE SELECTIONS PERSIST AND SWITCH
+select(QuarterSelection, Book) :: value(QuarterSelection, Book)
+select(QuarterSelection, Book) :: value(QuarterSelection, Y) ==> ~value(QuarterSelection, Y)
+
+% FALL
+select(fall_one, Book) :: readingbookwhen(Book, fall_one)
+select(fall_one, Book) :: readingbookwhen(Y, fall_one) ==> ~readingbookwhen(Y, fall_one)
+
+select(fall_two, Book) :: readingbookwhen(Book, fall_two)
+select(fall_two, Book) :: readingbookwhen(Y, fall_two) ==> ~readingbookwhen(Y, fall_two)
+
+select(fall_three, Book) :: readingbookwhen(Book, fall_three)
+select(fall_three, Book) :: readingbookwhen(Y, fall_three) ==> ~readingbookwhen(Y, fall_three)
+
+select(fall_four, Book) :: readingbookwhen(Book, fall_four)
+select(fall_four, Book) :: readingbookwhen(Y, fall_four) ==> ~readingbookwhen(Y, fall_four)
+
+select(fall_five, Book) :: readingbookwhen(Book, fall_five)
+select(fall_five, Book) :: readingbookwhen(Y, fall_five) ==> ~readingbookwhen(Y, fall_five)
+
+select(fall_six, Book) :: readingbookwhen(Book, fall_six)
+select(fall_six, Book) :: readingbookwhen(Y, fall_six) ==> ~readingbookwhen(Y, fall_six)
+
+select(fall_seven, Book) :: readingbookwhen(Book, fall_seven)
+select(fall_seven, Book) :: readingbookwhen(Y, fall_seven) ==> ~readingbookwhen(Y, fall_seven)
+
+select(fall_eight, Book) :: readingbookwhen(Book, fall_eight)
+select(fall_eight, Book) :: readingbookwhen(Y, fall_eight) ==> ~readingbookwhen(Y, fall_eight)
+
+% WINTER
+select(winter_one, Book) :: readingbookwhen(Book, winter_one)
+select(winter_one, Book) :: readingbookwhen(Y, winter_one) ==> ~readingbookwhen(Y, winter_one)
+
+select(winter_two, Book) :: readingbookwhen(Book, winter_two)
+select(winter_two, Book) :: readingbookwhen(Y, winter_two) ==> ~readingbookwhen(Y, winter_two)
+
+select(winter_three, Book) :: readingbookwhen(Book, winter_three)
+select(winter_three, Book) :: readingbookwhen(Y, winter_three) ==> ~readingbookwhen(Y, winter_three)
+
+select(winter_four, Book) :: readingbookwhen(Book, winter_four)
+select(winter_four, Book) :: readingbookwhen(Y, winter_four) ==> ~readingbookwhen(Y, winter_four)
+
+select(winter_five, Book) :: readingbookwhen(Book, winter_five)
+select(winter_five, Book) :: readingbookwhen(Y, winter_five) ==> ~readingbookwhen(Y, winter_five)
+
+select(winter_six, Book) :: readingbookwhen(Book, winter_six)
+select(winter_six, Book) :: readingbookwhen(Y, winter_six) ==> ~readingbookwhen(Y, winter_six)
+
+select(winter_seven, Book) :: readingbookwhen(Book, winter_seven)
+select(winter_seven, Book) :: readingbookwhen(Y, winter_seven) ==> ~readingbookwhen(Y, winter_seven)
+
+select(winter_eight, Book) :: readingbookwhen(Book, winter_eight)
+select(winter_eight, Book) :: readingbookwhen(Y, winter_eight) ==> ~readingbookwhen(Y, winter_eight)
+
+% SPRING
+select(spring_one, Book) :: readingbookwhen(Book, spring_one)
+select(spring_one, Book) :: readingbookwhen(Y, spring_one) ==> ~readingbookwhen(Y, spring_one)
+
+select(spring_two, Book) :: readingbookwhen(Book, spring_two)
+select(spring_two, Book) :: readingbookwhen(Y, spring_two) ==> ~readingbookwhen(Y, spring_two)
+
+select(spring_three, Book) :: readingbookwhen(Book, spring_three)
+select(spring_three, Book) :: readingbookwhen(Y, spring_three) ==> ~readingbookwhen(Y, spring_three)
+
+select(spring_four, Book) :: readingbookwhen(Book, spring_four)
+select(spring_four, Book) :: readingbookwhen(Y, spring_four) ==> ~readingbookwhen(Y, spring_four)
+
+select(spring_five, Book) :: readingbookwhen(Book, spring_five)
+select(spring_five, Book) :: readingbookwhen(Y, spring_five) ==> ~readingbookwhen(Y, spring_five)
+
+select(spring_six, Book) :: readingbookwhen(Book, spring_six)
+select(spring_six, Book) :: readingbookwhen(Y, spring_six) ==> ~readingbookwhen(Y, spring_six)
+
+select(spring_seven, Book) :: readingbookwhen(Book, spring_seven)
+select(spring_seven, Book) :: readingbookwhen(Y, spring_seven) ==> ~readingbookwhen(Y, spring_seven)
+
+select(spring_eight, Book) :: readingbookwhen(Book, spring_eight)
+select(spring_eight, Book) :: readingbookwhen(Y, spring_eight) ==> ~readingbookwhen(Y, spring_eight)
+
+
+% FOR AT LEAST ONE BOOK PER QUARTER
+isreadinginfall :- book(B, G, A, P, D) & (readingbookwhen(B, fall_one) | readingbookwhen(B, fall_two) | readingbookwhen(B, fall_three) | readingbookwhen(B, fall_four) | readingbookwhen(B, fall_five) | readingbookwhen(B, fall_six) |readingbookwhen(B, fall_seven) | readingbookwhen(B, fall_eight))
+isreadinginwinter :- book(B, G, A, P, D) & (readingbookwhen(B, winter_one) | readingbookwhen(B, winter_two) | readingbookwhen(B, winter_three) | readingbookwhen(B, winter_four) | readingbookwhen(B, winter_five) | readingbookwhen(B, winter_six) |readingbookwhen(B, winter_seven) | readingbookwhen(B, winter_eight))
+isreadinginspring :- book(B, G, A, P, D) & (readingbookwhen(B, spring_one) | readingbookwhen(B, spring_two) | readingbookwhen(B, spring_three) | readingbookwhen(B, spring_four) | readingbookwhen(B, spring_five) | readingbookwhen(B, spring_six) |readingbookwhen(B, spring_seven) | readingbookwhen(B, spring_eight))
+isreadingineveryquarter :- isreadinginfall & isreadinginwinter & isreadinginspring
+style(atleastonebookperquarter, color, green) :- isreadingineveryquarter
+style(atleastonebookperquarter, color, red) :- ~isreadingineveryquarter
+
+
+% DON'T REREAD
+isrereading :- book(B, G, A, P, D) & readingbookwhen(B, QuarterNumber1) & readingbookwhen(B, QuarterNumber2) & distinct(QuarterNumber1, QuarterNumber2)
+style(dontreread, color, green) :- ~isrereading
+style(dontreread, color, red) :- isrereading
+
+% READ AT LEAST ONE NONFICTION BOOK THIS YEAR
+isreadinganonfictionbook :- book(B, nonfiction, A, P, D) & readingbookwhen(B, QuarterNumber)
+style(atleastonenonfictionbookthisyear, color, green) :- isreadinganonfictionbook
+style(atleastonenonfictionbookthisyear, color, orange) :- ~isreadinganonfictionbook
+
+% READ AT LEAST ONE FICTION BOOK PER QUARTER
+bookisfiction(B) :- book(B, horror, A, P, D) | book(B, scifi, A, P, D) | book(B, fantasy, A, P, D)
+isreadingfictioninfall :- bookisfiction(B) & readingbookwhen(B, QuarterNumber) & quarternumberinquarter(QuarterNumber, fall)
+isreadingfictioninwinter :- bookisfiction(B) & readingbookwhen(B, QuarterNumber) & quarternumberinquarter(QuarterNumber, winter)
+isreadingfictioninspring :- bookisfiction(B) & readingbookwhen(B, QuarterNumber) & quarternumberinquarter(QuarterNumber, spring)
+isreadingfictionineveryquarter :- isreadingfictioninfall & isreadingfictioninwinter & isreadingfictioninspring
+style(atleastonefictionbookperquarter, color, green) :- isreadingfictionineveryquarter
+style(atleastonefictionbookperquarter, color, orange) :- ~isreadingfictionineveryquarter
+
+% READ AT LEAST THREE ENGLISH GENRES THIS YEAR
+genreisenglish(G) :- same(G, horror) | same(G, scifi) | same(G, fantasy) | same(G, nonfiction)
+threegenresreadthisyear :-
+  book(B1, G1, A1, P1, D1) & readingbookwhen(B1, QuarterNumber1) & genreisenglish(G1) &
+  book(B2, G2, A2, P2, D2) & readingbookwhen(B2, QuarterNumber2) & genreisenglish(G2) &
+  book(B3, G3, A3, P3, D3) & readingbookwhen(B3, QuarterNumber3) & genreisenglish(G3) &
+  mutex(G1,G2,G3)
+style(atleastthreeenglishgenresthisyear, color, green) :- threegenresreadthisyear
+style(atleastthreeenglishgenresthisyear, color, orange) :- ~threegenresreadthisyear
+
+% LANGUAGE PROFICIENCY
+isreadingspanishfortwoquarters :- book(B1, spanish, A1, P1, D1) & readingbookwhen(B1, QuarterNumber1) & quarternumberinquarter(QuarterNumber1, Q1) & book(B2, spanish, A2, P2, D2) & readingbookwhen(B2, QuarterNumber2) & quarternumberinquarter(QuarterNumber2, Q2) & distinct(Q1, Q2)
+isreadingfrenchfortwoquarters :- book(B1, french, A1, P1, D1) & readingbookwhen(B1, QuarterNumber1) & quarternumberinquarter(QuarterNumber1, Q1) & book(B2, french, A2, P2, D2) & readingbookwhen(B2, QuarterNumber2) & quarternumberinquarter(QuarterNumber2, Q2) & distinct(Q1, Q2)
+isreadingturkishfortwoquarters :- book(B1, turkish, A1, P1, D1) & readingbookwhen(B1, QuarterNumber1) & quarternumberinquarter(QuarterNumber1, Q1) & book(B2, turkish, A2, P2, D2) & readingbookwhen(B2, QuarterNumber2) & quarternumberinquarter(QuarterNumber2, Q2) & distinct(Q1, Q2)
+islanguageproficient :- isreadingspanishfortwoquarters | isreadingfrenchfortwoquarters | isreadingturkishfortwoquarters
+style(languageproficiency, color, green) :- islanguageproficient
+style(languageproficiency, color, orange) :- ~islanguageproficient
+
+% SERIES READ PREQUELS FIRST OR CONCURRENTLY
+directorindirectsequel(Book, BookOther) :- sequel(Book, BookOther)
+directorindirectsequel(Book, BookOther) :- sequel(Book, BookMiddle) & directorindirectsequel(BookMiddle, BookOther)
+bookbeingreadbeforeother(B1, B2, Q2) :- readingbookwhen(B1, QuarterNumber1) & quarternumberinquarter(QuarterNumber1, Q1) & readingbookwhen(B2, QuarterNumber2) & quarternumberinquarter(QuarterNumber2, Q2) & (futurequarter(Q1, Q2) | same(Q1, Q2))
+
+existsaprequelithasntreadbeforeorcurrently :- book(B, G, A, P, D) & readingbookwhen(B, QuarterNumber) & quarternumberinquarter(QuarterNumber, Q) & book(Prequel, G2, A2, P2, D2) & directorindirectsequel(Prequel, B) & ~bookbeingreadbeforeother(Prequel, B, Q)
+style(readprequelsfirst, color, green) :- ~existsaprequelithasntreadbeforeorcurrently
+style(readprequelsfirst, color, orange) :- existsaprequelithasntreadbeforeorcurrently
+
+% STATISTICS: TOTAL BOOK COUNTS
+innerhtml(totalnumberofbooksread, Count) :- evaluate(countofall(B, book(B, G, A, P, D) & readingbookwhen(B, QuarterNumber)), Count)
+innerhtml(totalnumberofbooksreadfall, Count) :- evaluate(countofall(B, book(B, G, A, P, D) & readingbookwhen(B, QuarterNumber) & quarternumberinquarter(QuarterNumber, fall)), Count)
+innerhtml(totalnumberofbooksreadwinter, Count) :- evaluate(countofall(B, book(B, G, A, P, D) & readingbookwhen(B, QuarterNumber) & quarternumberinquarter(QuarterNumber, winter)), Count)
+innerhtml(totalnumberofbooksreadspring, Count) :- evaluate(countofall(B, book(B, G, A, P, D) & readingbookwhen(B, QuarterNumber) & quarternumberinquarter(QuarterNumber, spring)), Count)
+
+% STATISTICS: AUTHOR GENDER
+innerhtml(totalnumberofbookswomenauthors, Count) :- evaluate(length(setofall(B, book(B, G, A, P, D) & readingbookwhen(B, QuarterNumber) & same(A, female))), Count)
+innerhtml(totalnumberofbooksmenauthors, Count) :- evaluate(length(setofall(B, book(B, G, A, P, D) & readingbookwhen(B, QuarterNumber) & same(A, male))), Count)
+
+% STATISTICS: TOTAL NUMBER OF UNIQUE PAGES
+first(X!Y,X)
+totalnumberofpages(T) :-
+  setofall([P, B],
+    book(B, G, A, P, D) &
+    readingbookwhen(B, QuarterNumber), S) &
+  map(first, S, L) &
+  sum(L, T)
+
+totalnumberofpagesquarter(T, Q) :-
+  setofall([P, B],
+    book(B, G, A, P, D) &
+    readingbookwhen(B, QuarterNumber) &
+    quarternumberinquarter(QuarterNumber, Q), S) &
+  map(first, S, L) &
+  sum(L, T)
+
+innerhtml(totalnumberofpagesread, Count) :- totalnumberofpages(Count) & updatechart()
+innerhtml(totalnumberofpagesreadfall, Count) :- totalnumberofpagesquarter(Count, fall)
+innerhtml(totalnumberofpagesreadwinter, Count) :- totalnumberofpagesquarter(Count, winter)
+innerhtml(totalnumberofpagesreadspring, Count) :- totalnumberofpagesquarter(Count, spring)
+
+% STATISTICS: AVERAGE DIFFICULTY
+first(X!Y,X)
+meandifficulty(T) :-
+  setofall([D, B],
+    book(B, G, A, P, D) &
+    readingbookwhen(B, QuarterNumber), S) &
+  map(first, S, L) &
+  mean(L, T)
+
+meandifficultyquarter(T, Q) :-
+  setofall([D, B],
+    book(B, G, A, P, D) &
+    readingbookwhen(B, QuarterNumber) &
+    quarternumberinquarter(QuarterNumber, Q), S) &
+  map(first, S, L) &
+  mean(L, T)
+
+isreading :- isreadinginfall | isreadinginwinter | isreadinginspring
+
+innerhtml(avgdifficulty, Avg) :- isreading & meandifficulty(Avg)
+innerhtml(avgdifficulty, 0) :- ~isreading
+
+innerhtml(avgdifficultyfall, Avg) :- isreadinginfall & meandifficultyquarter(Avg, fall)
+innerhtml(avgdifficultyfall, 0) :- ~isreadinginfall
+
+innerhtml(avgdifficultywinter, Avg) :- isreadinginwinter & meandifficultyquarter(Avg, winter)
+innerhtml(avgdifficultywinter, 0) :- ~isreadinginwinter
+
+innerhtml(avgdifficultyspring, Avg) :- isreadinginspring & meandifficultyquarter(Avg, spring)
+innerhtml(avgdifficultyspring, 0) :- ~isreadinginspring
+</ruleset>
+
+<!--=======================================================================-->
+
+<script>
+function loadOptions(selectElement) {
+    selectElement.add(new Option('', 'unknown'));
+
+    //for disabled genre headers
+    var horror = document.createElement("option");
+    horror.text = 'Horror';
+    horror.value = 'horror';
+    horror.disabled = true;
+    selectElement.appendChild(horror);
+
+    //for all books in genre
+    selectElement.add(new Option('"Dracula" by Bram Stoker (418, easy)', 'dracula'));
+    selectElement.add(new Option('"The Turn of the Screw" by Henry James (124, easy)', 'theturnofthescrew'));
+    selectElement.add(new Option('"The Woman in Black" by Susan Hill (208, easy)', 'thewomaninblack'));
+    selectElement.add(new Option('"The Shining" by Stephen King (688, medium)', 'theshining'));
+    selectElement.add(new Option('"House of Leaves" by Mark Z. Danielewski (705, medium)', 'houseofleaves'));
+    selectElement.add(new Option('"American Psycho" by Bret Easton Ellis (399, medium)', 'americanpsycho'));
+    selectElement.add(new Option('"IT" by Stephen King (1138, hard)', 'it'));
+    selectElement.add(new Option('"The Luminous Dead" by Caitlin Starling (432, hard)', 'theluminousdead'));
+    selectElement.add(new Option('"The Terror" by Dan Simmons (960, hard)', 'theterror'));
+
+    var scifi = document.createElement("option");
+    scifi.text = 'Sci-Fi';
+    scifi.value = 'scifi';
+    scifi.disabled = true;
+    selectElement.appendChild(scifi);
+
+    selectElement.add(new Option('"Ender\'s Game" by Orson Scott Card (352, easy)', 'endersgame'));
+    selectElement.add(new Option('"Ready Player One" by Ernest Cline (386, easy)', 'readyplayerone'));
+    selectElement.add(new Option('"The Martian" by Andy Weir (384, easy)', 'themartian'));
+    selectElement.add(new Option('"Snow Crash" by Neal Stephenson (470, medium)', 'snowcrash'));
+    selectElement.add(new Option('"Hyperion" by Dan Simmons (482, medium)', 'hyperion'));
+    selectElement.add(new Option('"The Left Hand of Darkness" by Ursula K. Le Guin (304, medium)', 'thelefthand'));
+    selectElement.add(new Option('"Cryptonomicon" by Neal Stephenson (1168, hard)', 'cryptonomicon'));
+    selectElement.add(new Option('"Anathem" by Neal Stephenson (960, hard)', 'anathem'));
+    selectElement.add(new Option('"The Book of the New Sun" by Gene Wolfe (912, hard)', 'thebookofthenewsun'));
+
+    var fantasy = document.createElement("option");
+    fantasy.text = 'Fantasy';
+    fantasy.value = 'fantasy';
+    fantasy.disabled = true;
+    selectElement.appendChild(fantasy);
+
+    selectElement.add(new Option('"Stardust" by Neil Gaiman (288, easy)', 'stardust'));
+    selectElement.add(new Option('"The Night Circus" by Erin Morgenstern (512, easy)', 'thenightcircus'));
+    selectElement.add(new Option('"Uprooted" by Naomi Novik (464, easy)', 'uprooted'));
+    selectElement.add(new Option('"The Name of the Wind" by Patrick Rothfuss (662, medium)', 'thenameofthewind'));
+    selectElement.add(new Option('"Sabriel" by Garth Nix (491, medium)', 'sabriel'));
+    selectElement.add(new Option('"Graceling" by Kristin Cashore (471, medium)', 'graceling'));
+    selectElement.add(new Option('"The Way of Kings" by Brandon Sanderson (1007, hard)', 'thewayofkings'));
+    selectElement.add(new Option('"The Blade Itself" by Joe Abercrombie (519, hard)', 'thebladeitself'));
+    selectElement.add(new Option('"The Final Empire" by Michael J. Sullivan (541, hard)', 'thefinalempire'));
+
+    var nonfic = document.createElement("option");
+    nonfic.text = 'Non-Fic';
+    nonfic.value = 'nonfic';
+    nonfic.disabled = true;
+    selectElement.appendChild(nonfic);
+
+    selectElement.add(new Option('"Becoming" by Michelle Obama (426, easy)', 'becoming'));
+    selectElement.add(new Option('"The Immortal Life of Henrietta Lacks" by Rebecca Skloot (381, easy)', 'theimmortallife'));
+    selectElement.add(new Option('“Mindset” by Carol Dweck (320, easy)', 'mindset'));
+    selectElement.add(new Option('"Educated" by Tara Westover (334, medium)', 'educated'));
+    selectElement.add(new Option('"The Diary of a Young Girl" by Anne Frank (352, medium)', 'thediary'));
+    selectElement.add(new Option('"The Gene: An Intimate History" by Siddhartha Mukherjee (608, medium)', 'thegene'));
+    selectElement.add(new Option('"The 7 Habits of Highly Effective People" by Stephen R. Covey (384, hard)', 'theseven'));
+    selectElement.add(new Option('"Thinking, Fast and Slow" by Daniel Kahneman (512, hard)', 'thinking'));
+    selectElement.add(new Option('"In Cold Blood" by Truman Capote (343, hard)', 'incoldblood'));
+
+    var series = document.createElement("option");
+    series.text = 'Series';
+    series.value = 'series';
+    series.disabled = true;
+    selectElement.appendChild(series);
+
+    selectElement.add(new Option('"Harry Potter and the Philosopher\'s Stone" by J.K. Rowling (223, easy)', 'hpone'));
+    selectElement.add(new Option('"Harry Potter and the Chamber of Secrets" by J.K. Rowling (251, easy)', 'hptwo'));
+    selectElement.add(new Option('"Harry Potter and the Prisoner of Azkaban" by J.K. Rowling (317, easy)', 'hpthree'));
+    selectElement.add(new Option('"Harry Potter and the Goblet of Fire" by J.K. Rowling (636, medium)', 'hpfour'));
+    selectElement.add(new Option('"Harry Potter and the Order of the Phoenix" by J.K. Rowling (766, medium)', 'hpfive'));
+    selectElement.add(new Option('"Harry Potter and the Half-Blood Prince" by J.K. Rowling (607, medium)', 'hpsix'));
+    selectElement.add(new Option('"Harry Potter and the Deathly Hallows" by J.K. Rowling (607, medium)', 'hpseven'));
+    selectElement.add(new Option('"The Hobbit, or There and Back Again" by J.R.R. Tolkien (310, hard)', 'hobbit'));
+    selectElement.add(new Option('"The Fellowship of the Ring" by J.R.R. Tolkien (398, hard)', 'lotrone'));
+    selectElement.add(new Option('"The Two Towers" by J.R.R. Tolkien (447, hard)', 'lotrtwo'));
+    selectElement.add(new Option('"The Return of the King" by J.R.R. Tolkien (416, hard)', 'lotrthree'));
+
+    var french = document.createElement("option");
+    french.text = 'French';
+    french.value = 'french';
+    french.disabled = true;
+    selectElement.appendChild(french);
+
+    selectElement.add(new Option('"Le Petit Prince" by Antoine de Saint-Exupéry (96, easy)', 'lepetit'));
+    selectElement.add(new Option('"The Meursault Investigation" by Kamel Daoud (144, easy)', 'meursault'));
+    selectElement.add(new Option('"Le Château des Étoiles, Tome 1: 1869, La Conquête de l\'espace" by Alex Alice (64, easy)', 'chateau'));
+    selectElement.add(new Option('"La Quête d\'Ewilan: D\'un monde à l\'autre" by Pierre Bottero (288, medium)', 'laquete'));
+    selectElement.add(new Option('"La Passe-Miroir, Tome 1: Les Fiancés de l\'Hiver" by Christelle Dabos (528, medium)', 'lapasse'));
+    selectElement.add(new Option('"Les Aventuriers de la Mer, Tome 1: Le Vaisseau Magique" by Robin Hobb (416, medium)', 'lesaventuriers'));
+    selectElement.add(new Option('"Les Misérables" by Victor Hugo (1900, hard)', 'lesmiserables'));
+    selectElement.add(new Option('"La Horde du Contrevent" by Alain Damasio (688, hard)', 'lahorde'));
+    selectElement.add(new Option('"L\'Épée de Vérité, Tome 1: La Première Leçon du Sorcier" by Terry Goodkind (800, hard)', 'lepee'));
+
+    var spanish = document.createElement("option");
+    spanish.text = 'Spanish';
+    spanish.value = 'spanish';
+    spanish.disabled = true;
+    selectElement.appendChild(spanish);
+
+    selectElement.add(new Option('"Memorias de Idhún: La Resistencia" by Laura Gallego García (416, easy)', 'memorias'));
+    selectElement.add(new Option('"Las Crónicas de Narnia: El León, la Bruja y el Armario" by C.S. Lewis (208, easy)', 'narnia'));
+    selectElement.add(new Option('"El Príncipe de la Niebla" by Carlos Ruiz Zafón (232, easy)', 'elprincipe'));
+    selectElement.add(new Option('"Pedro Páramo" by Juan Rulfo (124, medium)', 'pedroparamo'));
+    selectElement.add(new Option('"Las Lágrimas de Shiva" by César Mallorquí (320, medium)', 'laslagrimas'));
+    selectElement.add(new Option('"Crónicas de la Torre: El Valle de los Lobos" by Laura Gallego García (304, medium)', 'torre'));
+    selectElement.add(new Option('"La Ciudad de los Prodigios" by Eduardo Mendoza (416, hard)', 'laciudad'));
+    selectElement.add(new Option('"El Laberinto de los Espíritus" by Carlos Ruiz Zafón (928, hard)', 'ellaberinto'));
+    selectElement.add(new Option('"El Temor de un Hombre Sabio" by Patrick Rothfuss (1040, hard)', 'eltemor'));
+
+    var turkish = document.createElement("option");
+    turkish.text = 'Turkish';
+    turkish.value = 'turkish';
+    turkish.disabled = true;
+    selectElement.appendChild(turkish);
+
+    selectElement.add(new Option('"Zaman Çarkı: Dönen Çark" by Murat Sönmez (320, easy)', 'zaman'));
+    selectElement.add(new Option('"Tuhaf Hikayeler Dükkanı" by Mehmet Berk Yaltırık (256, easy)', 'tuhaf'));
+    selectElement.add(new Option('"Bir Yol Hikayesi" by Hakan Bıçakcı (192, easy)', 'biryol'));
+    selectElement.add(new Option('"Felsefe Sözlüğü" by Ercüment Aytac (592, medium)', 'felsefe'));
+    selectElement.add(new Option('"Sis ve Gece" by Ahmet Ümit (464, medium)', 'sisvegece'));
+    selectElement.add(new Option('"Kar Kokusu" by Hasan Ali Toptaş (480, medium)', 'karkokusu'));
+    selectElement.add(new Option('"İstanbul Hatırası" by Ahmet Ümit (896, hard)', 'istanbul'));
+    selectElement.add(new Option('"Kürk Mantolu Madonna" by Sabahattin Ali (176, hard)', 'kurk'));
+    selectElement.add(new Option('"Aşk" by Elif Şafak (736, hard)', 'ask'));
+}
+
+loadOptions(document.getElementById("fall_one"));
+loadOptions(document.getElementById("fall_two"));
+loadOptions(document.getElementById("fall_three"));
+loadOptions(document.getElementById("fall_four"));
+loadOptions(document.getElementById("fall_five"));
+loadOptions(document.getElementById("fall_six"));
+loadOptions(document.getElementById("fall_seven"));
+loadOptions(document.getElementById("fall_eight"));
+
+loadOptions(document.getElementById("winter_one"));
+loadOptions(document.getElementById("winter_two"));
+loadOptions(document.getElementById("winter_three"));
+loadOptions(document.getElementById("winter_four"));
+loadOptions(document.getElementById("winter_five"));
+loadOptions(document.getElementById("winter_six"));
+loadOptions(document.getElementById("winter_seven"));
+loadOptions(document.getElementById("winter_eight"));
+
+loadOptions(document.getElementById("spring_one"));
+loadOptions(document.getElementById("spring_two"));
+loadOptions(document.getElementById("spring_three"));
+loadOptions(document.getElementById("spring_four"));
+loadOptions(document.getElementById("spring_five"));
+loadOptions(document.getElementById("spring_six"));
+loadOptions(document.getElementById("spring_seven"));
+loadOptions(document.getElementById("spring_eight"));
+
+var xValues = ["Fall", "Winter", "Spring"];
+var genXValues = ["Female", "Male"];
+var yValues = [0, 0, 0];
+var genYValues = [0, 0];
+var bookColors = ["red", "red", "red"];
+var pageColors = ["green", "green", "green"];
+var diffColors = ["purple", "purple", "purple"];
+var genderColors = ["pink", "blue"];
+
+var chartbooks = new Chart("chartbooks", {
+  type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        label: 'Number of Books per Quarter',
+        backgroundColor: bookColors,
+        data: yValues
+      }]
+    },
+  options: {
+     scales: {
+         y: {
+           beginAtZero: true
+         }
+     }
+  }
+});
+
+var chartpages = new Chart("chartpages", {
+  type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        label: 'Number of Pages per Quarter',
+        backgroundColor: pageColors,
+        data: yValues
+      }]
+    },
+  options: {
+     scales: {
+         y: {
+           beginAtZero: true
+         }
+     }
+  }
+});
+
+var chartdifficulty = new Chart("chartdifficulty", {
+  type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        label: 'Average Difficulty per Quarter',
+        backgroundColor: diffColors,
+        data: yValues
+      }]
+    },
+  options: {
+     scales: {
+         y: {
+           beginAtZero: true
+         }
+     }
+  }
+});
+
+var chartgender = new Chart("chartgender", {
+  type: "pie",
+    data: {
+      labels: genXValues,
+      datasets: [{
+        label: 'Books by Gender',
+        backgroundColor: genderColors,
+        data: genYValues
+      }]
+    },
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+        title: {
+          display: true,
+          text: 'Books by Gender',
+          font: {
+            size: 13
+        }
+    }
+  }
+  }
+});
+
+function updatecharts() {
+    //alert(parseInt(document.getElementById('totalnumberofbooksreadfall').innerText));
+    chartbooks.data.datasets[0].data = []
+    chartbooks.data.datasets[0].data.push(parseInt(document.getElementById('totalnumberofbooksreadfall').innerText));
+    chartbooks.data.datasets[0].data.push(parseInt(document.getElementById('totalnumberofbooksreadwinter').innerText));
+    chartbooks.data.datasets[0].data.push(parseInt(document.getElementById('totalnumberofbooksreadspring').innerText));
+    chartbooks.update();
+
+    //alert(parseInt(document.getElementById('totalnumberofpagesreadfall').innerText));
+    chartpages.data.datasets[0].data = []
+    chartpages.data.datasets[0].data.push(parseInt(document.getElementById('totalnumberofpagesreadfall').innerText));
+    chartpages.data.datasets[0].data.push(parseInt(document.getElementById('totalnumberofpagesreadwinter').innerText));
+    chartpages.data.datasets[0].data.push(parseInt(document.getElementById('totalnumberofpagesreadspring').innerText));
+    chartpages.update();
+
+    //alert(parseInt(document.getElementById('avgdifficultyfall').innerText));
+    chartdifficulty.data.datasets[0].data = []
+    chartdifficulty.data.datasets[0].data.push(parseInt(document.getElementById('avgdifficultyfall').innerText));
+    chartdifficulty.data.datasets[0].data.push(parseInt(document.getElementById('avgdifficultywinter').innerText));
+    chartdifficulty.data.datasets[0].data.push(parseInt(document.getElementById('avgdifficultyspring').innerText));
+    chartdifficulty.update();
+
+    //alert(parseInt(document.getElementById('totalnumberofbookswomenauthors').innerText));
+    chartgender.data.datasets[0].data = []
+    chartgender.data.datasets[0].data.push(parseInt(document.getElementById('totalnumberofbookswomenauthors').innerText));
+    chartgender.data.datasets[0].data.push(parseInt(document.getElementById('totalnumberofbooksmenauthors').innerText));
+    chartgender.update();
+}
+</script>
+
+</body>
+
+<!--=======================================================================-->
+
+</html>
