@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+  
+<!--=======================================================================-->
+
+  <head>
+    <title>Reading Log</title>
+    <script type='text/javascript' src='http://epilog.stanford.edu/javascript/epilog.js'></script>
+    <script type='text/javascript' src='http://worksheets.stanford.edu/javascript/worksheets.js'></script>
+  </head>
+  
+<!--=======================================================================-->
+  
+<body style='background-color:#F6F5EB' onload='initialize()'>
+  
+  <!-- Create basic, centered header -->
+  <center>
+    <header>
+      <h1 style="margin-top: 1em">College Reading Log 📚</h1>
+      <p>CS 151 Final Project by Alexis Echano, Su Kara, Amelia Leon, and Priti Rangnekar</p>
+    </header>
+  </center>
+
+  <!-- Main Body for Log -->
+  <center>
+    <!-- Personal Goal Section -->
+    <div style="outline: 0.1em solid black; padding: 1em; margin: 1em; overflow: auto;">
+      <h2>Reading Goals</h2>
+
+      <!-- Genre/Language Book Counter per Quarter -->
+      <table>
+        <!-- FALL -->
+        <tr>
+          <td style="width: 100px; text-align: left; font-weight: bold">
+            FALL
+          </td>
+          <td>
+          Horror:
+          </td>
+          <td style="width: 560px">
+            <select id="fall_horror" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Dracula" by Bram Stoker (418, easy)</option>
+                <option>"The Turn of the Screw" by Henry James (124, easy)</option>
+                <option>"The Woman in Black" by Susan Hill (208, easy)</option>
+                <option>"The Shining" by Stephen King (688, medium)</option>
+                <option>"House of Leaves" by Mark Z. Danielewski (705, medium)</option>
+                <option>"American Psycho" by Bret Easton Ellis (399, medium)</option>
+                <option>"IT" by Stephen King (1138, hard)</option>
+                <option>"The Luminous Dead" by Caitlin Starling (432, hard)</option>
+                <option>"The Terror" by Dan Simmons (960, hard)</option>
+            </select>
+          </td>
+          <td>
+          Sci-Fi:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_scifi" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Ender's Game" by Orson Scott Card (352, easy)</option>
+                <option>"Ready Player One" by Ernest Cline (386, easy)</option>
+                <option>"The Martian" by Andy Weir (384, easy)</option>
+                <option>"Snow Crash" by Neal Stephenson (470, medium)</option>
+                <option>"Hyperion" by Dan Simmons (482, medium)</option>
+                <option>"The Left Hand of Darkness" by Ursula K. Le Guin (304, medium)</option>
+                <option>"Cryptonomicon" by Neal Stephenson (1168, hard)</option>
+                <option>"Anathem" by Neal Stephenson (960, hard)</option>
+                <option>"The Book of the New Sun" by Gene Wolfe (912, hard)</option>
+            </select>
+          </td>          
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Fantasy:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_fantasy" style="width: 520px" onchange="modselector(this)">
+               <option value="unknown"></option>
+               <option>"Stardust" by Neil Gaiman (288, easy)</option>
+               <option>"The Night Circus" by Erin Morgenstern (512, easy)</option>
+               <option>"Uprooted" by Naomi Novik (464, easy)</option>
+               <option>"The Name of the Wind" by Patrick Rothfuss (662, medium)</option>
+               <option>"Sabriel" by Garth Nix (491, medium)</option>
+               <option>"Graceling" by Kristin Cashore (471, medium)</option>
+               <option>"The Way of Kings" by Brandon Sanderson (1007, hard)</option>
+               <option>"The Blade Itself" by Joe Abercrombie (519, hard)</option>
+               <option>"The Final Empire" by Michael J. Sullivan (541, hard)</option>
+            </select>
+          </td>
+          <td>
+          Non-fic:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_nonfic" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Becoming" by Michelle Obama (426, easy)</option>
+                <option>"The Immortal Life of Henrietta Lacks" by Rebecca Skloot (381, easy)</option>
+                <option>“Mindset” by Carol Dweck (320, easy)</option>
+                <option>"Educated" by Tara Westover (334, medium)</option>
+                <option>"The Diary of a Young Girl" by Anne Frank (352, medium)</option>
+                <option>"The Gene: An Intimate History" by Siddhartha Mukherjee (608, medium)</option>
+                <option>"The 7 Habits of Highly Effective People" by Stephen R. Covey (384, hard)</option>
+                <option>"Thinking, Fast and Slow" by Daniel Kahneman (512, hard)</option>
+                <option>"In Cold Blood" by Truman Capote (343, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Series:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_series" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Harry Potter and the Philosopher's Stone" by J.K. Rowling (223, easy)</option>
+                <option>"Harry Potter and the Chamber of Secrets" by J.K. Rowling (251, easy)</option>
+                <option>"Harry Potter and the Prisoner of Azkaban" by J.K. Rowling (317, easy)</option>
+                <option>"Harry Potter and the Goblet of Fire" by J.K. Rowling (636, medium)</option>
+                <option>"Harry Potter and the Order of the Phoenix" by J.K. Rowling (766, medium)</option>
+                <option>"Harry Potter and the Half-Blood Prince" by J.K. Rowling (607, medium)</option>
+                <option>"Harry Potter and the Deathly Hallows" by J.K. Rowling (607, medium)</option>
+                <option>"The Hobbit, or There and Back Again" by J.R.R. Tolkien (310, hard)</option>
+                <option>"The Fellowship of the Ring" by J.R.R. Tolkien (398, hard)</option>
+                <option>"The Two Towers" by J.R.R. Tolkien (447, hard)</option>
+                <option>"The Return of the King" by J.R.R. Tolkien (416, hard)</option>
+            </select>
+          </td>
+          <td>
+          French:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_french" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Le Petit Prince" by Antoine de Saint-Exupéry (96, easy)</option>
+                <option>"The Meursault Investigation" by Kamel Daoud (144, easy)</option>
+                <option>"Le Château des Étoiles, Tome 1: 1869, La Conquête de l'espace" by Alex Alice (64, easy)</option>
+                <option>"La Quête d'Ewilan: D'un monde à l'autre" by Pierre Bottero (288, medium)</option>
+                <option>"La Passe-Miroir, Tome 1: Les Fiancés de l'Hiver" by Christelle Dabos (528, medium)</option>
+                <option>"Les Aventuriers de la Mer, Tome 1: Le Vaisseau Magique" by Robin Hobb (416, medium)</option>
+                <option>"Les Misérables" by Victor Hugo (1900, hard)</option>
+                <option>"La Horde du Contrevent" by Alain Damasio (688, hard)</option>
+                <option>"L'Épée de Vérité, Tome 1: La Première Leçon du Sorcier" by Terry Goodkind (800, hard)</option>
+            </select>
+          </td>          
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Spanish:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_spanish" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Memorias de Idhún: La Resistencia" by Laura Gallego García (416, easy)</option>
+                <option>"Las Crónicas de Narnia: El León, la Bruja y el Armario" by C.S. Lewis (208, easy)</option>
+                <option>"El Príncipe de la Niebla" by Carlos Ruiz Zafón (232, easy)</option>
+                <option>"Pedro Páramo" by Juan Rulfo (124, medium)</option>
+                <option>"Las Lágrimas de Shiva" by César Mallorquí (320, medium)</option>
+                <option>"Crónicas de la Torre: El Valle de los Lobos" by Laura Gallego García (304, medium)</option>
+                <option>"La Ciudad de los Prodigios" by Eduardo Mendoza (416, hard)</option>
+                <option>"El Laberinto de los Espíritus" by Carlos Ruiz Zafón (928, hard)</option>
+                <option>"El Temor de un Hombre Sabio" by Patrick Rothfuss (1040, hard)</option>
+            </select>
+          </td>
+          <td>
+          Turkish:
+          </td>
+          <td style="width: 500px">
+            <select id="fall_turkish" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Zaman Çarkı: Dönen Çark" by Murat Sönmez (320, easy)</option>
+                <option>"Tuhaf Hikayeler Dükkanı" by Mehmet Berk Yaltırık (256, easy)</option>
+                <option>"Bir Yol Hikayesi" by Hakan Bıçakcı (192, easy)</option>
+                <option>"Felsefe Sözlüğü" by Ercüment Aytac (592, medium)</option>
+                <option>"Sis ve Gece" by Ahmet Ümit (464, medium)</option>
+                <option>"Kar Kokusu" by Hasan Ali Toptaş (480, medium)</option>
+                <option>"İstanbul Hatırası" by Ahmet Ümit (896, hard)</option>
+                <option>"Kürk Mantolu Madonna" by Sabahattin Ali (176, hard)</option>
+                <option>"Aşk" by Elif Şafak (736, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr style="height: 15px">
+        </tr>
+        
+        <!-- WINTER -->
+        <tr>
+          <td style="width: 80px; text-align: left; font-weight: bold">
+            WINTER
+          </td>
+          <td>
+          Horror:
+          </td>
+          <td style="width: 560px">
+            <select id="winter_horror" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Dracula" by Bram Stoker (418, easy)</option>
+                <option>"The Turn of the Screw" by Henry James (124, easy)</option>
+                <option>"The Woman in Black" by Susan Hill (208, easy)</option>
+                <option>"The Shining" by Stephen King (688, medium)</option>
+                <option>"House of Leaves" by Mark Z. Danielewski (705, medium)</option>
+                <option>"American Psycho" by Bret Easton Ellis (399, medium)</option>
+                <option>"IT" by Stephen King (1138, hard)</option>
+                <option>"The Luminous Dead" by Caitlin Starling (432, hard)</option>
+                <option>"The Terror" by Dan Simmons (960, hard)</option>
+            </select>
+          </td>
+          <td>
+          Sci-Fi:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_scifi" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Ender's Game" by Orson Scott Card (352, easy)</option>
+                <option>"Ready Player One" by Ernest Cline (386, easy)</option>
+                <option>"The Martian" by Andy Weir (384, easy)</option>
+                <option>"Snow Crash" by Neal Stephenson (470, medium)</option>
+                <option>"Hyperion" by Dan Simmons (482, medium)</option>
+                <option>"The Left Hand of Darkness" by Ursula K. Le Guin (304, medium)</option>
+                <option>"Cryptonomicon" by Neal Stephenson (1168, hard)</option>
+                <option>"Anathem" by Neal Stephenson (960, hard)</option>
+                <option>"The Book of the New Sun" by Gene Wolfe (912, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Fantasy:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_fantasy" style="width: 520px" onchange="modselector(this)">
+               <option value="unknown"></option>
+               <option>"Stardust" by Neil Gaiman (288, easy)</option>
+               <option>"The Night Circus" by Erin Morgenstern (512, easy)</option>
+               <option>"Uprooted" by Naomi Novik (464, easy)</option>
+               <option>"The Name of the Wind" by Patrick Rothfuss (662, medium)</option>
+               <option>"Sabriel" by Garth Nix (491, medium)</option>
+               <option>"Graceling" by Kristin Cashore (471, medium)</option>
+               <option>"The Way of Kings" by Brandon Sanderson (1007, hard)</option>
+               <option>"The Blade Itself" by Joe Abercrombie (519, hard)</option>
+               <option>"The Final Empire" by Michael J. Sullivan (541, hard)</option>
+            </select>
+          </td>
+          <td>
+          Non-fic:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_nonfic" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Becoming" by Michelle Obama (426, easy)</option>
+                <option>"The Immortal Life of Henrietta Lacks" by Rebecca Skloot (381, easy)</option>
+                <option>“Mindset” by Carol Dweck (320, easy)</option>
+                <option>"Educated" by Tara Westover (334, medium)</option>
+                <option>"The Diary of a Young Girl" by Anne Frank (352, medium)</option>
+                <option>"The Gene: An Intimate History" by Siddhartha Mukherjee (608, medium)</option>
+                <option>"The 7 Habits of Highly Effective People" by Stephen R. Covey (384, hard)</option>
+                <option>"Thinking, Fast and Slow" by Daniel Kahneman (512, hard)</option>
+                <option>"In Cold Blood" by Truman Capote (343, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Series:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_series" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Harry Potter and the Philosopher's Stone" by J.K. Rowling (223, easy)</option>
+                <option>"Harry Potter and the Chamber of Secrets" by J.K. Rowling (251, easy)</option>
+                <option>"Harry Potter and the Prisoner of Azkaban" by J.K. Rowling (317, easy)</option>
+                <option>"Harry Potter and the Goblet of Fire" by J.K. Rowling (636, medium)</option>
+                <option>"Harry Potter and the Order of the Phoenix" by J.K. Rowling (766, medium)</option>
+                <option>"Harry Potter and the Half-Blood Prince" by J.K. Rowling (607, medium)</option>
+                <option>"Harry Potter and the Deathly Hallows" by J.K. Rowling (607, medium)</option>
+                <option>"The Hobbit, or There and Back Again" by J.R.R. Tolkien (310, hard)</option>
+                <option>"The Fellowship of the Ring" by J.R.R. Tolkien (398, hard)</option>
+                <option>"The Two Towers" by J.R.R. Tolkien (447, hard)</option>
+                <option>"The Return of the King" by J.R.R. Tolkien (416, hard)</option>
+            </select>
+          </td>
+          <td>
+          French:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_french" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Le Petit Prince" by Antoine de Saint-Exupéry (96, easy)</option>
+                <option>"The Meursault Investigation" by Kamel Daoud (144, easy)</option>
+                <option>"Le Château des Étoiles, Tome 1: 1869, La Conquête de l'espace" by Alex Alice (64, easy)</option>
+                <option>"La Quête d'Ewilan: D'un monde à l'autre" by Pierre Bottero (288, medium)</option>
+                <option>"La Passe-Miroir, Tome 1: Les Fiancés de l'Hiver" by Christelle Dabos (528, medium)</option>
+                <option>"Les Aventuriers de la Mer, Tome 1: Le Vaisseau Magique" by Robin Hobb (416, medium)</option>
+                <option>"Les Misérables" by Victor Hugo (1900, hard)</option>
+                <option>"La Horde du Contrevent" by Alain Damasio (688, hard)</option>
+                <option>"L'Épée de Vérité, Tome 1: La Première Leçon du Sorcier" by Terry Goodkind (800, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Spanish:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_spanish" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Memorias de Idhún: La Resistencia" by Laura Gallego García (416, easy)</option>
+                <option>"Las Crónicas de Narnia: El León, la Bruja y el Armario" by C.S. Lewis (208, easy)</option>
+                <option>"El Príncipe de la Niebla" by Carlos Ruiz Zafón (232, easy)</option>
+                <option>"Pedro Páramo" by Juan Rulfo (124, medium)</option>
+                <option>"Las Lágrimas de Shiva" by César Mallorquí (320, medium)</option>
+                <option>"Crónicas de la Torre: El Valle de los Lobos" by Laura Gallego García (304, medium)</option>
+                <option>"La Ciudad de los Prodigios" by Eduardo Mendoza (416, hard)</option>
+                <option>"El Laberinto de los Espíritus" by Carlos Ruiz Zafón (928, hard)</option>
+                <option>"El Temor de un Hombre Sabio" by Patrick Rothfuss (1040, hard)</option>
+            </select>
+          </td>
+          <td>
+          Turkish:
+          </td>
+          <td style="width: 500px">
+            <select id="winter_turkish" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Zaman Çarkı: Dönen Çark" by Murat Sönmez (320, easy)</option>
+                <option>"Tuhaf Hikayeler Dükkanı" by Mehmet Berk Yaltırık (256, easy)</option>
+                <option>"Bir Yol Hikayesi" by Hakan Bıçakcı (192, easy)</option>
+                <option>"Felsefe Sözlüğü" by Ercüment Aytac (592, medium)</option>
+                <option>"Sis ve Gece" by Ahmet Ümit (464, medium)</option>
+                <option>"Kar Kokusu" by Hasan Ali Toptaş (480, medium)</option>
+                <option>"İstanbul Hatırası" by Ahmet Ümit (896, hard)</option>
+                <option>"Kürk Mantolu Madonna" by Sabahattin Ali (176, hard)</option>
+                <option>"Aşk" by Elif Şafak (736, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr style="height: 15px">
+        </tr>
+
+        <!-- SPRING -->     
+        <tr>
+          <td style="width: 80px; text-align: left; font-weight: bold">
+            SPRING
+          </td>
+          <td>
+          Horror:
+          </td>
+          <td style="width: 560px">
+            <select id="spring_horror" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Dracula" by Bram Stoker (418, easy)</option>
+                <option>"The Turn of the Screw" by Henry James (124, easy)</option>
+                <option>"The Woman in Black" by Susan Hill (208, easy)</option>
+                <option>"The Shining" by Stephen King (688, medium)</option>
+                <option>"House of Leaves" by Mark Z. Danielewski (705, medium)</option>
+                <option>"American Psycho" by Bret Easton Ellis (399, medium)</option>
+                <option>"IT" by Stephen King (1138, hard)</option>
+                <option>"The Luminous Dead" by Caitlin Starling (432, hard)</option>
+                <option>"The Terror" by Dan Simmons (960, hard)</option>
+            </select>
+          </td>
+          <td>
+          Sci-Fi:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_scifi" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Ender's Game" by Orson Scott Card (352, easy)</option>
+                <option>"Ready Player One" by Ernest Cline (386, easy)</option>
+                <option>"The Martian" by Andy Weir (384, easy)</option>
+                <option>"Snow Crash" by Neal Stephenson (470, medium)</option>
+                <option>"Hyperion" by Dan Simmons (482, medium)</option>
+                <option>"The Left Hand of Darkness" by Ursula K. Le Guin (304, medium)</option>
+                <option>"Cryptonomicon" by Neal Stephenson (1168, hard)</option>
+                <option>"Anathem" by Neal Stephenson (960, hard)</option>
+                <option>"The Book of the New Sun" by Gene Wolfe (912, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Fantasy:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_fantasy" style="width: 520px" onchange="modselector(this)">
+               <option value="unknown"></option>
+               <option>"Stardust" by Neil Gaiman (288, easy)</option>
+               <option>"The Night Circus" by Erin Morgenstern (512, easy)</option>
+               <option>"Uprooted" by Naomi Novik (464, easy)</option>
+               <option>"The Name of the Wind" by Patrick Rothfuss (662, medium)</option>
+               <option>"Sabriel" by Garth Nix (491, medium)</option>
+               <option>"Graceling" by Kristin Cashore (471, medium)</option>
+               <option>"The Way of Kings" by Brandon Sanderson (1007, hard)</option>
+               <option>"The Blade Itself" by Joe Abercrombie (519, hard)</option>
+               <option>"The Final Empire" by Michael J. Sullivan (541, hard)</option>
+            </select>
+          </td>
+          <td>
+          Non-fic:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_nonfic" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Becoming" by Michelle Obama (426, easy)</option>
+                <option>"The Immortal Life of Henrietta Lacks" by Rebecca Skloot (381, easy)</option>
+                <option>“Mindset” by Carol Dweck (320, easy)</option>
+                <option>"Educated" by Tara Westover (334, medium)</option>
+                <option>"The Diary of a Young Girl" by Anne Frank (352, medium)</option>
+                <option>"The Gene: An Intimate History" by Siddhartha Mukherjee (608, medium)</option>
+                <option>"The 7 Habits of Highly Effective People" by Stephen R. Covey (384, hard)</option>
+                <option>"Thinking, Fast and Slow" by Daniel Kahneman (512, hard)</option>
+                <option>"In Cold Blood" by Truman Capote (343, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Series:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_series" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Harry Potter and the Philosopher's Stone" by J.K. Rowling (223, easy)</option>
+                <option>"Harry Potter and the Chamber of Secrets" by J.K. Rowling (251, easy)</option>
+                <option>"Harry Potter and the Prisoner of Azkaban" by J.K. Rowling (317, easy)</option>
+                <option>"Harry Potter and the Goblet of Fire" by J.K. Rowling (636, medium)</option>
+                <option>"Harry Potter and the Order of the Phoenix" by J.K. Rowling (766, medium)</option>
+                <option>"Harry Potter and the Half-Blood Prince" by J.K. Rowling (607, medium)</option>
+                <option>"Harry Potter and the Deathly Hallows" by J.K. Rowling (607, medium)</option>
+                <option>"The Hobbit, or There and Back Again" by J.R.R. Tolkien (310, hard)</option>
+                <option>"The Fellowship of the Ring" by J.R.R. Tolkien (398, hard)</option>
+                <option>"The Two Towers" by J.R.R. Tolkien (447, hard)</option>
+                <option>"The Return of the King" by J.R.R. Tolkien (416, hard)</option>
+            </select>
+          </td>
+          <td>
+          French:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_french" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Le Petit Prince" by Antoine de Saint-Exupéry (96, easy)</option>
+                <option>"The Meursault Investigation" by Kamel Daoud (144, easy)</option>
+                <option>"Le Château des Étoiles, Tome 1: 1869, La Conquête de l'espace" by Alex Alice (64, easy)</option>
+                <option>"La Quête d'Ewilan: D'un monde à l'autre" by Pierre Bottero (288, medium)</option>
+                <option>"La Passe-Miroir, Tome 1: Les Fiancés de l'Hiver" by Christelle Dabos (528, medium)</option>
+                <option>"Les Aventuriers de la Mer, Tome 1: Le Vaisseau Magique" by Robin Hobb (416, medium)</option>
+                <option>"Les Misérables" by Victor Hugo (1900, hard)</option>
+                <option>"La Horde du Contrevent" by Alain Damasio (688, hard)</option>
+                <option>"L'Épée de Vérité, Tome 1: La Première Leçon du Sorcier" by Terry Goodkind (800, hard)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+          Spanish:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_spanish" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Memorias de Idhún: La Resistencia" by Laura Gallego García (416, easy)</option>
+                <option>"Las Crónicas de Narnia: El León, la Bruja y el Armario" by C.S. Lewis (208, easy)</option>
+                <option>"El Príncipe de la Niebla" by Carlos Ruiz Zafón (232, easy)</option>
+                <option>"Pedro Páramo" by Juan Rulfo (124, medium)</option>
+                <option>"Las Lágrimas de Shiva" by César Mallorquí (320, medium)</option>
+                <option>"Crónicas de la Torre: El Valle de los Lobos" by Laura Gallego García (304, medium)</option>
+                <option>"La Ciudad de los Prodigios" by Eduardo Mendoza (416, hard)</option>
+                <option>"El Laberinto de los Espíritus" by Carlos Ruiz Zafón (928, hard)</option>
+                <option>"El Temor de un Hombre Sabio" by Patrick Rothfuss (1040, hard)</option>
+            </select>
+          </td>
+          <td>
+          Turkish:
+          </td>
+          <td style="width: 500px">
+            <select id="spring_turkish" style="width: 520px" onchange="modselector(this)">
+                <option value="unknown"></option>
+                <option>"Zaman Çarkı: Dönen Çark" by Murat Sönmez (320, easy)</option>
+                <option>"Tuhaf Hikayeler Dükkanı" by Mehmet Berk Yaltırık (256, easy)</option>
+                <option>"Bir Yol Hikayesi" by Hakan Bıçakcı (192, easy)</option>
+                <option>"Felsefe Sözlüğü" by Ercüment Aytac (592, medium)</option>
+                <option>"Sis ve Gece" by Ahmet Ümit (464, medium)</option>
+                <option>"Kar Kokusu" by Hasan Ali Toptaş (480, medium)</option>
+                <option>"İstanbul Hatırası" by Ahmet Ümit (896, hard)</option>
+                <option>"Kürk Mantolu Madonna" by Sabahattin Ali (176, hard)</option>
+                <option>"Aşk" by Elif Şafak (736, hard)</option>
+            </select>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <!-- Reading Rules -->
+    <div class="rulessection" style="padding: 1em; margin: 1em;">
+      <h2>Rules</h2>
+
+      <!-- Split Rules -->
+      <table width='100%'>
+        <tr>
+        <td style="width: 550px">
+        </td>
+        <td>
+          <div id='singleselect' style='color:red'>&nbsp;&nbsp;1. Select at most one book from each genre per quarter.</div>
+          <div id='twoenglish' style='color:red'>&nbsp;&nbsp;2. Select at least two English books.</div>
+          <div id='onelanguage' style='color:red'>&nbsp;&nbsp;3. Select at least 1 Language book.</div>
+          <div id='difficultyup' style='color:red'>&nbsp;&nbsp;4. Increase average difficulty each quarter.</div>
+          <div id='seriesorder' style='color:red'>&nbsp;&nbsp;5. Series books must be read in order.</div>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </center>
+  
+<!--=======================================================================-->
+
+<dataset id='lambda' style='font-family:courier;display:none' rows='20' cols='20'>
+</dataset>
+
+<!--=======================================================================-->
+
+<dataset id='testdata' type='text/hrf' style='display:none'>
+</dataset>
+
+<!--=======================================================================-->
+
+<ruleset id='library' style='font-family:courier;display:none' rows='20'>
+</ruleset>
+
+<!--=======================================================================-->
+
+</body>
+
+<!--=======================================================================-->
+
+</html>
